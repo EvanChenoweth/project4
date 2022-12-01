@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const reviewSchema = require('./review')
 
 const userSchema = new mongoose.Schema(
 	{
@@ -11,6 +12,7 @@ const userSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		reviews: [reviewSchema],
 		token: String,
 	},
 	{

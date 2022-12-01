@@ -4,7 +4,7 @@ const express = require('express')
 const passport = require('passport')
 
 // pull in Mongoose model for items
-const Post = require('../models/post')
+const Guide = require('../models/guide')
 
 // this is a collection of methods that help us detect situations when we need
 // to throw a custom error
@@ -19,6 +19,7 @@ const requireOwnership = customErrors.requireOwnership
 // this is middleware that will remove blank fields from `req.body`, e.g.
 // { item: { title: '', text: 'foo' } } -> { item: { text: 'foo' } }
 const removeBlanks = require('../../lib/remove_blank_fields')
+const guide = require('../models/guide')
 // passing this as a second argument to `router.<verb>` will make it
 // so that a token MUST be passed for that route to be available
 // it will also set `req.user`
@@ -28,31 +29,31 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // INDEX
-// GET /posts
-router.get('/posts', (req, res, next) => {
-	Post.find()
-		.then((posts) => {
+// GET /guides
+router.get('/guides', (req, res, next) => {
+	Guide.find()
+		.then((guides) => {
 			// `items` will be an array of Mongoose documents
 			// we want to convert each one to a POJO, so we use `.map` to
 			// apply `.toObject` to each one
-			return posts.map((post) => post.toObject())
+			return guides.map((guide) => guide.toObject())
 		})
 		// respond with status 200 and JSON of the items
-		.then((posts) => res.status(200).json({ posts: posts }))
+		.then((guides) => res.status(200).json({ guides: guides }))
 		// if an error occurs, pass it to the handler
 		.catch(next)
 })
 
-// INDEX of that Users posts
-// GET /posts
-router.get('/posts/mine', (req, res, next) => {
-	Post.find({ owner: req.session.userId })
-		.then((posts) => {
+// INDEX of that Users guides
+// GET /guides
+router.get('/guides/mine', (req, res, next) => {
+	Guide.find({ owner: req.session.userId })
+		.then((guides) => {
 			// apply `.toObject` to each one
-			return posts.map((post) => post.toObject())
+			return guides.map((guide) => guide.toObject())
 		})
 		// respond with status 200 and JSON of the items
-		.then((posts) => res.status(200).json({ posts: posts }))
+		.then((guides) => res.status(200).json({ guides: guides }))
 		// if an error occurs, pass it to the handler
 		.catch(next)
 })
@@ -60,27 +61,27 @@ router.get('/posts/mine', (req, res, next) => {
 
 // SHOW
 //* route should not require token
-// GET /posts/5a7db6c74d55bc51bdf39793
-router.get('/posts/:id', (req, res, next) => {
+// GET /guides/5a7db6c74d55bc51bdf39793
+router.get('/guides/:id', (req, res, next) => {
 	// req.params.id will be set based on the `:id` in the route
-	Post.findById(req.params.id)
+	Guide.findById(req.params.id)
 		.then(handle404)
 		// if `findById` is succesful, respond with 200 and "item" JSON
-		.then((post) => res.status(200).json({ post: post }))
+		.then((guide) => res.status(200).json({ guide: guide }))
 		// if an error occurs, pass it to the handler
 		.catch(next)
 })
 
 // CREATE
-// POST /items
-router.post('/posts', requireToken, (req, res, next) => {
-	// set owner of new item to be current user
-	req.body.post.owner = req.user.id
+// POST /guides
+router.post('/guides', requireToken, (req, res, next) => {
+	// set owner of new guide to be current user
+	req.body.guide.owner = req.user.id
 
-	Post.create(req.body.post)
+	Guide.create(req.body.guide)
 		// respond to succesful `create` with status 201 and JSON of new "item"
-		.then((post) => {
-			res.status(201).json({ post: post.toObject() })
+		.then((guide) => {
+			res.status(201).json({ guide: guide.toObject() })
 		})
 		// if an error occurs, pass it off to our error handler
 		// the error handler needs the error message and the `res` object so that it
@@ -90,20 +91,20 @@ router.post('/posts', requireToken, (req, res, next) => {
 
 // UPDATE
 // PATCH /items/5a7db6c74d55bc51bdf39793
-router.patch('/posts/:id', requireToken, removeBlanks, (req, res, next) => {
+router.patch('/guides/:id', requireToken, removeBlanks, (req, res, next) => {
 	// if the client attempts to change the `owner` property by including a new
 	// owner, prevent that by deleting that key/value pair
-	delete req.body.post.owner
+	delete req.body.guide.owner
 
-	Post.findById(req.params.id)
+	Guide.findById(req.params.id)
 		.then(handle404)
-		.then((post) => {
+		.then((guide) => {
 			// pass the `req` object and the Mongoose record to `requireOwnership`
 			// it will throw an error if the current user isn't the owner
-			requireOwnership(req, post)
+			requireOwnership(req, guide)
 
 			// pass the result of Mongoose's `.update` to the next `.then`
-			return post.updateOne(req.body.post)
+			return guide.updateOne(req.body.guide)
 		})
 		// if that succeeded, return 204 and no JSON
 		.then(() => res.sendStatus(204))
@@ -113,14 +114,14 @@ router.patch('/posts/:id', requireToken, removeBlanks, (req, res, next) => {
 
 // DESTROY
 // DELETE /items/5a7db6c74d55bc51bdf39793
-router.delete('/posts/:id', requireToken, (req, res, next) => {
-	Post.findById(req.params.id)
+router.delete('/guides/:id', requireToken, (req, res, next) => {
+	Guide.findById(req.params.id)
 		.then(handle404)
-		.then((post) => {
+		.then((guide) => {
 			// throw an error if current user doesn't own `item`
-			requireOwnership(req, post)
+			requireOwnership(req, guide)
 			// delete the item ONLY IF the above didn't throw
-			post.deleteOne()
+			guide.deleteOne()
 		})
 		// send back 204 and no content if the deletion succeeded
 		.then(() => res.sendStatus(204))
