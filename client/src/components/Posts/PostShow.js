@@ -78,34 +78,30 @@ const PostShow = ({ user, msgAlert}) => {
         })
     }
 
-    const cardContainerLayout = {
-        display: 'flex',
-        flexFlow: 'row wrap',
-        justifyContent: 'center'
-    }
-
-    return(
-        <>
-            <Card style={{ width: '90vw', margin: 5, color: 'white'}} bg="dark">
-                <Card.Header>Game: {post.game}</Card.Header>
+    const postCard = 
+        <Card style={{ width: '90vw', margin: 5, color: 'white'}} className="container-md" bg="dark">
+                <Card.Header className="text-primary">Game: {post.game}</Card.Header>
                 <Card.Body>
                     <Card.Text>
                         <p>Game Mode: {post.mode}</p>
                         <p>Players needed: {post.players}</p>
-                        <p>Additional Info: {post.info}</p>
+                        <p>Additional Info / Contact Info: {post.info}</p>
                         <Button onClick={toggleShowUpdate}>Update</Button>
                         <Button onClick={handleDeletePost}>Delete</Button>
                     </Card.Text>
                 </Card.Body>
             </Card>
 
+    return(
+        <div className="container-md">
+            {postCard}
             {isUpdateShown && (
                 <PostUpdate post={post}
                     handleChange={handleChange}
                     handleUpdatePost={handleUpdatePost}
                 />
             )}
-        </>
+        </div>
     )
 }
 

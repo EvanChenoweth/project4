@@ -1,13 +1,7 @@
 import React, { useEffect, useState } from 'react' 
-import { Button, Card } from 'react-bootstrap'
+import { Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { postIndex } from '../../api/post'
-
-const cardContainerLayout = {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center'
-}
 
 const PostIndex = ({ user, msgAlert }) => {
 

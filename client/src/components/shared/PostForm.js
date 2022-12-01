@@ -33,7 +33,7 @@ const PostForm = (props) => {
                 />
                 <Form.Label>How many more players can join?: (required)</Form.Label>
                 <Form.Control 
-                    placeholder="How many more players can join?"
+                    placeholder="How many more players do you want?"
                     name="players"
                     id="players"
                     value= { post.players }
@@ -41,7 +41,7 @@ const PostForm = (props) => {
                 />
                 <Form.Label>Additional Info: </Form.Label>
                 <Form.Control 
-                    placeholder="Any additional info"
+                    placeholder="Additional / Contact Info (IGN, Discord, Lobby Code, etc)"
                     name="info"
                     id="info"
                     value= { post.info }
