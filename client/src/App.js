@@ -41,7 +41,7 @@ const App = () => {
 	}
 
 		return (
-			<Fragment>
+			<Fragment id='app'>
 				<Header user={user} />
 				<Routes>
 					<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />

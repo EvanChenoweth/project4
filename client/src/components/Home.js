@@ -5,22 +5,26 @@ const Home = (props) => {
 	const centerStyle = {
 		margin: '5vh auto',
 		textAlign: 'center',
+		color: 'white'
 	}
 
-	const centerStyleMarginTop = {
-		marginTop: '20vh',
+	const centerStylePaddingTop = {
+		paddingTop: '20vh',
 		textAlign: 'center',
+		color: 'white'
 	}
 
 	return (
 		<>
-			<div style={centerStyleMarginTop}>
-				<h3>the answer to your question...</h3>
-				<h2>Who's Online?</h2>
-			</div>
+			<div id="home">
+				<div style={centerStylePaddingTop}>
+					<h3>the answer to your question...</h3>
+					<h1>Who's Online?</h1>
+				</div>
 
-			<div style={centerStyle}>
-				<h3><a href="/sign-up">Sign Up</a> or <a href="/sign-in">Sign In</a> to continue...</h3>
+				<div style={centerStyle}>
+					<h4><a href="/sign-up">Sign Up</a> or <a href="/sign-in">Sign In</a> to continue...</h4>
+				</div>
 			</div>
 		</>
 	)
