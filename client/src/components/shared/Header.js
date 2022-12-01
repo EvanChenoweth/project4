@@ -19,6 +19,11 @@ const authenticatedOptions = (
 				Sign Out
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='posts' style={linkStyle}>
+				Create a Post
+			</Link>
+		</Nav.Link>
 	</>
 )
 

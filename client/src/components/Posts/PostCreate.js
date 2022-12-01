@@ -1,8 +1,8 @@
 import React, { useState } from 'react' 
-import { itemCreate } from '../../api/item'
+import { postCreate } from '../../api/post'
 import { useNavigate } from 'react-router-dom'
 
-import ItemForm from '../shared/ItemForm'
+import PostForm from '../shared/PostForm'
 
 const ItemCreate = ({ user, msgAlert }) => {
     const navigate = useNavigate()
