@@ -38,7 +38,7 @@ const GuideCreate = ({ user, msgAlert }) => {
         })
     }
 
-    const handleCreatePost = (e) => {
+    const handleCreateGuide = (e) => {
         e.preventDefault()
         
         guideCreate(guide, user)

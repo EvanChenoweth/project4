@@ -17,6 +17,7 @@ import PostIndex from './components/Posts/PostIndex'
 import PostShow from './components/Posts/PostShow'
 import PostUpdate from './components/Posts/PostUpdate'
 import MyProfile from './components/Profile/MyProfile'
+import GuideCreate from './components/Guides/GuideCreate'
 import ReviewCreate from './components/Profile/ReviewCreate'
 
 const App = () => {
@@ -104,6 +105,14 @@ const App = () => {
 							element={
 							<RequireAuth user={user}>
 								<PostUpdate msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/gcreate'
+							element={
+							<RequireAuth user={user}>
+								<GuideCreate msgAlert={msgAlert} user={user} />
 							</RequireAuth>
 							}
 						/>
