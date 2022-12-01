@@ -28,8 +28,7 @@ const requireToken = passport.authenticate('bearer', { session: false })
 const router = express.Router()
 
 // INDEX
-//* route should not require token
-// GET /items
+// GET /posts
 router.get('/posts', (req, res, next) => {
 	Post.find()
 		.then((posts) => {
