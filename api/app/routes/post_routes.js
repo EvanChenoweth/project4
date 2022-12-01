@@ -102,10 +102,10 @@ router.patch('/posts/:id', requireToken, removeBlanks, (req, res, next) => {
 		.then((post) => {
 			// pass the `req` object and the Mongoose record to `requireOwnership`
 			// it will throw an error if the current user isn't the owner
-			requireOwnership(req, posts)
+			requireOwnership(req, post)
 
 			// pass the result of Mongoose's `.update` to the next `.then`
-			return item.updateOne(req.body.post)
+			return post.updateOne(req.body.post)
 		})
 		// if that succeeded, return 204 and no JSON
 		.then(() => res.sendStatus(204))
