@@ -13,6 +13,7 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import PostCreate from './components/Posts/PostCreate'
+import PostIndex from './components/Posts/PostIndex'
 
 const App = () => {
 
@@ -70,10 +71,18 @@ const App = () => {
 						</RequireAuth>}
 						/>
 						<Route
-							path='/posts'
+							path='/create'
 							element={
 							<RequireAuth user={user}>
 								<PostCreate msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/posts'
+							element={
+							<RequireAuth user={user}>
+								<PostIndex msgAlert={msgAlert} user={user} />
 							</RequireAuth>
 							}
 						/>

@@ -20,8 +20,13 @@ const authenticatedOptions = (
 			</Link>
 		</Nav.Link>
 		<Nav.Link>
-			<Link to='posts' style={linkStyle}>
+			<Link to='create' style={linkStyle}>
 				Create a Post
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='posts' style={linkStyle}>
+				Index all Post
 			</Link>
 		</Nav.Link>
 	</>
