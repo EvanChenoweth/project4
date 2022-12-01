@@ -7,10 +7,9 @@ As a user, I want to be able to…
 - Create a Looking for Game post
 - Edit my Looking for Game post
 - Browse other user’s Looking for Game post
-- Sort Looking for Game posts by Game
 - Remove my Looking for Game post
 - Add reviews to other users profiles
-- Be able to see a “positivity” number indicator (1-10) that represents how friendly a user is based on user input.
+- Be able to see a “positivity” number indicator (1-10) that represents how friendly my account is based on user input.
 
 Schedule to complete this project:
 - I want to plan to accomplish the majority of the functionality for this project within the first half of the week, so that I will have plenty of time to make the app look great visually, and to refine and stomp out any bugs that come up.
