@@ -4,8 +4,12 @@ const PostForm = (props) => {
     // here are the props we're going to bring into our form
     const { post, handleChange, heading, handleSubmit } = props
 
+    const white = {
+        color: 'white'
+    }
+
     return (
-        <Container className="justify-content-center">
+        <Container className="justify-content-center" style={white}>
             <h3>{ heading }</h3>
             <Form onSubmit={ handleSubmit }>
                 <Form.Label>Name of game: (required)</Form.Label>
@@ -40,7 +44,6 @@ const PostForm = (props) => {
                     value= { post.info }
                     onChange={ handleChange }
                 />
-                <Form.Label>Description: (required)</Form.Label>
                 <Button type="submit">Submit</Button>
             </Form>
         </Container>

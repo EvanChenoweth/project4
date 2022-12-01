@@ -4,17 +4,17 @@ import { useNavigate } from 'react-router-dom'
 
 import PostForm from '../shared/PostForm'
 
-const ItemCreate = ({ user, msgAlert }) => {
+const PostCreate = ({ user, msgAlert }) => {
     const navigate = useNavigate()
 
-    const defaultItem = {
-        name: '',
-        category: '',
-        price: '',
-        description: ''
+    const defaultPost = {
+        game: '',
+        mode: '',
+        players: '',
+        info: ''
     }
 
-    const [item, setItem] = useState(defaultItem)
+    const [post, setPost] = useState(defaultPost)
 
     const handleChange = (e) => {
         // to keep the values as users input info 
@@ -23,7 +23,7 @@ const ItemCreate = ({ user, msgAlert }) => {
         // this was fine for the old way of building a pet
         // need new stuff to handle new data types number and boolean
         // setPet({...pet, [event.target.name]: event.target.value})
-        setItem(prevItem => {
+        setPost(prevPost => {
             const updatedName = e.target.name
             let updatedValue = e.target.value
             // this handles our number type
@@ -32,41 +32,41 @@ const ItemCreate = ({ user, msgAlert }) => {
                 updatedValue = parseInt(e.target.value)
             }
 
-            const updatedItem = { [updatedName]: updatedValue }
+            const updatedPost = { [updatedName]: updatedValue }
 
-            return { ...prevItem, ...updatedItem }
+            return { ...prevPost, ...updatedPost }
         })
     }
 
-    const handleCreateItem = (e) => {
+    const handleCreatePost = (e) => {
         e.preventDefault()
         
-        itemCreate(item, user)
-            .then(res => { navigate(`/items/${res.data.item.id}`)})
+        postCreate(post, user)
+            .then(res => { navigate(`/posts/${res.data.post.id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Success',
-                    message: 'Create Item',
+                    message: 'Create Post',
                     variant: 'success'
                 })
             })
             .catch((error) => {
                 msgAlert({
                     heading: 'Failure',
-                    message: 'Create Item Failure' + error,
+                    message: 'Create Post Failure' + error,
                     variant: 'danger'
                 })
             })
     }
 
     return (
-        <ItemForm
-            item={ item }
+        <PostForm
+            post={ post }
             handleChange={ handleChange }
-            heading="Create a new item listing!"
-            handleSubmit={ handleCreateItem }
+            heading="Create a new looking for game post!"
+            handleSubmit={ handleCreatePost }
         />
 	)
 }
 
-export default ItemCreate
+export default PostCreate
