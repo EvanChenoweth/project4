@@ -78,7 +78,7 @@ router.get('/posts/:id', (req, res, next) => {
 // POST /items
 router.post('/posts', requireToken, (req, res, next) => {
 	// set owner of new item to be current user
-	req.body.item.owner = req.user.id
+	req.body.post.owner = req.user.id
 
 	Post.create(req.body.post)
 		// respond to succesful `create` with status 201 and JSON of new "item"
