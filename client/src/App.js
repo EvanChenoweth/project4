@@ -18,6 +18,9 @@ import PostShow from './components/Posts/PostShow'
 import PostUpdate from './components/Posts/PostUpdate'
 import MyProfile from './components/Profile/MyProfile'
 import GuideCreate from './components/Guides/GuideCreate'
+import GuideIndex from './components/Guides/GuideIndex'
+import GuideShow from './components/Guides/GuideShow'
+import GuideUpdate from './components/Guides/GuideUpdate'
 import ReviewCreate from './components/Profile/ReviewCreate'
 
 const App = () => {
@@ -101,7 +104,7 @@ const App = () => {
 							}
 						/>
 						<Route
-							path='/items/:id'
+							path='/posts/:id'
 							element={
 							<RequireAuth user={user}>
 								<PostUpdate msgAlert={msgAlert} user={user} />
@@ -113,6 +116,30 @@ const App = () => {
 							element={
 							<RequireAuth user={user}>
 								<GuideCreate msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/guides'
+							element={
+							<RequireAuth user={user}>
+								<GuideIndex msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/guides/:id'
+							element={
+							<RequireAuth user={user}>
+								<GuideShow msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/guides/:id'
+							element={
+							<RequireAuth user={user}>
+								<GuideUpdate msgAlert={msgAlert} user={user} />
 							</RequireAuth>
 							}
 						/>
