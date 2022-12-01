@@ -16,7 +16,8 @@ import PostCreate from './components/Posts/PostCreate'
 import PostIndex from './components/Posts/PostIndex'
 import PostShow from './components/Posts/PostShow'
 import PostUpdate from './components/Posts/PostUpdate'
-import MyProfile from './components/auth/MyProfile'
+import MyProfile from './components/Profile/MyProfile'
+import ReviewCreate from './components/Profile/ReviewCreate'
 
 const App = () => {
 
@@ -104,6 +105,14 @@ const App = () => {
 							<RequireAuth user={user}>
 								<PostUpdate msgAlert={msgAlert} user={user} />
 							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/review'
+							element={
+							// <RequireAuth user={user}>
+								<ReviewCreate msgAlert={msgAlert} user={user} />
+							// </RequireAuth>
 							}
 						/>
 					</Routes>

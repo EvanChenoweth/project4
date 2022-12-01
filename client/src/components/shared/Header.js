@@ -10,6 +10,31 @@ const linkStyle = {
 const authenticatedOptions = (
 	<>
 		<Nav.Link>
+			<Link to='create' style={linkStyle}>
+				Create a Post
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='posts' style={linkStyle}>
+				Browse all Posts
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='gcreate' style={linkStyle}>
+				Create a Guide
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='guides' style={linkStyle}>
+				Browse all Guides
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
+			<Link to='my-profile' style={linkStyle}>
+				My Profile
+			</Link>
+		</Nav.Link>
+		<Nav.Link>
 			<Link to='change-password' style={linkStyle}>
 				Change Password
 			</Link>
@@ -17,21 +42,6 @@ const authenticatedOptions = (
 		<Nav.Link>
 			<Link to='sign-out' style={linkStyle}>
 				Sign Out
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='create' style={linkStyle}>
-				Create a Post
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='posts' style={linkStyle}>
-				Index all Post
-			</Link>
-		</Nav.Link>
-		<Nav.Link>
-			<Link to='my-profile' style={linkStyle}>
-				My Profile
 			</Link>
 		</Nav.Link>
 	</>

@@ -53,17 +53,3 @@ export const changePassword = (passwords, user) => {
 		},
 	})
 }
-
-export const userUpdate = (user) => {
-	console.log(user)
-	return axios({
-		method: 'PATCH',
-		url: apiUrl + '/user',
-		data: {
-			user: user,
-		},
-		headers: {
-			Authorization: `Token token=${user.token}`,
-		},
-	})
-}
