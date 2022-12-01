@@ -7,7 +7,6 @@ As a user, I want to be able to…
 - Create a Looking for Game post
 - Edit my Looking for Game post
 - Browse other user’s Looking for Game post
-- Sort Looking for Game posts by Game
 - Remove my Looking for Game post
 - Add reviews to other users profiles
 - Be able to see a “positivity” number indicator (1-10) that represents how friendly a user is based on user input.
