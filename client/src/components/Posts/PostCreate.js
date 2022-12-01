@@ -42,7 +42,7 @@ const PostCreate = ({ user, msgAlert }) => {
         e.preventDefault()
         
         postCreate(post, user)
-            .then(res => { navigate(`/posts/${res.data.post.id}`)})
+            .then(res => { navigate(`/posts/${res.data.post._id}`)})
             .then(() => {
                 msgAlert({
                     heading: 'Success',

@@ -14,6 +14,8 @@ import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import PostCreate from './components/Posts/PostCreate'
 import PostIndex from './components/Posts/PostIndex'
+import PostShow from './components/Posts/PostShow'
+import PostUpdate from './components/Posts/PostUpdate'
 
 const App = () => {
 
@@ -83,6 +85,22 @@ const App = () => {
 							element={
 							<RequireAuth user={user}>
 								<PostIndex msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/posts/:id'
+							element={
+							<RequireAuth user={user}>
+								<PostShow msgAlert={msgAlert} user={user} />
+							</RequireAuth>
+							}
+						/>
+						<Route
+							path='/items/:id'
+							element={
+							<RequireAuth user={user}>
+								<PostUpdate msgAlert={msgAlert} user={user} />
 							</RequireAuth>
 							}
 						/>

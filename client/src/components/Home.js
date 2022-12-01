@@ -9,7 +9,7 @@ const Home = (props, user) => {
 	}
 
 	const centerStylePaddingTop = {
-		paddingTop: '20vh',
+		paddingTop: '10vh',
 		textAlign: 'center',
 		color: 'white'
 	}
@@ -35,10 +35,31 @@ const Home = (props, user) => {
 		)
 	}
 
+	const boxContainer = {
+		marginTop: '5vh',
+		width: '100vw',
+		height: '50vw'
+	}
+
+	const box = {
+		margin: '0 auto',
+		width: '90vw',
+		height: '25vw',
+		backgroundColor: 'rgb(34, 37, 41)'
+	}
+	
 	return (
 		<>
 			<div id="home">
 				{options}
+				{/* <div className="box-container" style={boxContainer}>
+					<div className="box" style={box}>
+						<a href="/posts">Browse All Posts</a>
+					</div>
+					<div className="box" style={box}>
+						<button href="/create">Create A Post</button>
+					</div>
+				</div> */}
 			</div>
 		</>
 	)

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react' 
-import { Card } from 'react-bootstrap'
+import { Button, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { postIndex } from '../../api/post'
 
@@ -42,6 +42,7 @@ const PostIndex = ({ user, msgAlert }) => {
                     Players Needed: {post.players}
                     <br />
                     Additional Info: {post.info}
+                    <br />
                 </Card.Text>
             </Card.Body>
         </Card>
