@@ -1,0 +1,50 @@
+#main-page-body {
+    background-color: #f6f2e9;
+    height: 1600px;
+}
+
+#main-page-body-my-profile {
+    padding-top: 2rem;
+    background-color: #f6f2e9;
+    height: 1600px;
+}
+#main-text-profile {
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    background-color: #002440;
+    color: white;
+    margin: auto;
+    width: 700px;
+    
+}
+
+#wrap-div {
+    text-align: center;
+    background-color: white;
+    color: #002440;;
+    margin: auto;
+    width: 700px;
+    height: 500px;
+}
+.user-menu {
+    font-size: 30px;
+    font-weight: lighter;
+    text-align: initial;
+    padding: 20px;
+    border-bottom: 1px solid black;
+}
+.span {
+    font-weight: bolder;
+}
+#profile-buttons {
+    margin-top: 130px;
+}
+
+#modal-header {
+    background-color: #002440;
+}
+#modal-header .btn-close {
+    background-color: white;
+}

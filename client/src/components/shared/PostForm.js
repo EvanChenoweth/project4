@@ -36,6 +36,7 @@ const PostForm = (props) => {
                     placeholder="How many more players do you want?"
                     name="players"
                     id="players"
+                    type="number"
                     value= { post.players }
                     onChange={ handleChange }
                 />

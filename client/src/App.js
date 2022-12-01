@@ -16,6 +16,7 @@ import PostCreate from './components/Posts/PostCreate'
 import PostIndex from './components/Posts/PostIndex'
 import PostShow from './components/Posts/PostShow'
 import PostUpdate from './components/Posts/PostUpdate'
+import MyProfile from './components/auth/MyProfile'
 
 const App = () => {
 
@@ -49,6 +50,7 @@ const App = () => {
 				<Header user={user} />
 					<Routes>
 						<Route path='/' element={<Home msgAlert={msgAlert} user={user} />} />
+						<Route path='/my-profile' element={<MyProfile msgAlert={msgAlert} user={user} setUser={setUser}  />} />
 						<Route
 							path='/sign-up'
 							element={<SignUp msgAlert={msgAlert} setUser={setUser} />}

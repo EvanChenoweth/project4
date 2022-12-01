@@ -29,6 +29,11 @@ const authenticatedOptions = (
 				Index all Post
 			</Link>
 		</Nav.Link>
+		<Nav.Link>
+			<Link to='my-profile' style={linkStyle}>
+				My Profile
+			</Link>
+		</Nav.Link>
 	</>
 )
 

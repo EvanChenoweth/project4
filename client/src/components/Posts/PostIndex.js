@@ -25,7 +25,7 @@ const PostIndex = ({ user, msgAlert }) => {
     const postCards = allPosts.map(post => (
         <Card key={ post.id } style={{ width: '90vw', margin: 5, color: 'white'}} bg="dark">
             <Card.Header>
-                <Link to={ `/posts/${post._id}` }>{ post.game } Lobby needs { post.players } more players</Link>
+                <Link to={ `/posts/${post._id}` }>{ post.game } lobby needs { post.players } more players</Link>
             </Card.Header>
             <Card.Body>
                 <Card.Text>
