@@ -1,10 +1,10 @@
 Who’s Online? – Online social medium for gamers to find other players to play Online games with.
 
 Technologies Used...
-MongoDB
-ExpressJS
-ReactJS
-NodeJS
+- MongoDB
+- ExpressJS
+- ReactJS
+- NodeJS
 
 As a user, I want to be able to…
 - Sign Up
